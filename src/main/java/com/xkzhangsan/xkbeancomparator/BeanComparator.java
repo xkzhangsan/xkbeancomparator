@@ -10,8 +10,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 public class BeanComparator {
 
 	/**
@@ -51,7 +49,7 @@ public class BeanComparator {
 
 		Class<?> clazz = source.getClass();
 		Field[] fields = clazz.getDeclaredFields();
-		if (ArrayUtils.isEmpty(fields)) {
+		if (fields == null || fields.length ==0) {
 			throw new RuntimeException("source.class has no property.");
 		}
 		for (Field field : fields) {

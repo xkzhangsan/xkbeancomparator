@@ -5,20 +5,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Test;
+
 import com.xkzhangsan.xkbeancomparator.BeanComparator;
 
 public class BeanTest {
-
-	public static void main(String[] args) {
-		test1();
-		test2();
-	}
 
 	/**
 	 * 对比所有属性
 	 * Compare all attributes
 	 */
-	public static void test1() {
+	@Test
+	public void test1() {
 		Bean b1 = new Bean();
 		b1.setId(1);
 		b1.setName("aa");
@@ -46,7 +44,8 @@ public class BeanTest {
 	 * Compare only the attributes in the map, 
 	 * and replace the attribute description based on the key
 	 */
-	public static void test2() {
+	@Test
+	public void test2() {
 		Map<String, String> map = new HashMap<>();
 		map.put("name", "姓名");
 

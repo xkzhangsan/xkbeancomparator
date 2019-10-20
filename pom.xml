@@ -3,12 +3,36 @@
   <groupId>com.xkzhangsan</groupId>
   <artifactId>xkbeancomparator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   
-  <dependencies>
-     <dependency>
-	    <groupId>org.apache.commons</groupId>
-	    <artifactId>commons-lang3</artifactId>
-	    <version>3.5</version>
-	 </dependency>
-  </dependencies>
+	<properties>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+		
+		<compile.version>1.7</compile.version>
+		<junit.version>4.12</junit.version>
+	</properties>
+	  
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+	 <plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+			<configuration>
+				<source>${compile.version}</source>
+				<target>${compile.version}</target>
+			</configuration>
+		</plugin>
+	  </plugins>
+	</build>
 </project>
