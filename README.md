@@ -20,5 +20,5 @@
 
 Class 主要类名称：BeanComparator.java  
 Method 主要方法为：  
-public static String compareBean(Object source, Object target)
+public static String compareBean(Object source, Object target)  
 public static CompareResult getCompareResult(Object source, Object target)
