@@ -11,6 +11,44 @@ import java.util.Map;
 import java.util.Objects;
 
 public class BeanComparator {
+	
+	/**
+	 * 获得对比结果
+	 * Obtain comparative results
+	 * 
+	 * @param source
+	 * @param target
+	 * @return
+	 */
+	public static CompareResult getCompareResult(Object source, Object target) {
+		CompareResult compareResult = new CompareResult();
+		String result = compareBean(source, target);
+		if(!"".equals(result)){
+			compareResult.setChanged(true);
+			compareResult.setChangeContent(result);
+		}
+		return compareResult;
+	}
+	
+	/**
+	 * 获得对比结果，支持属性名称map，只对比map中包含的属性值
+	 * Get the comparison result, support the attribute name map, 
+	 * and compare only the attribute values contained in the map
+	 * 
+	 * @param source
+	 * @param target
+	 * @param propertyTranslationMap
+	 * @return
+	 */
+	public static CompareResult getCompareResult(Object source, Object target, Map<String, String> propertyTranslationMap) {
+		CompareResult compareResult = new CompareResult();
+		String result = compareBean(source, target, propertyTranslationMap);
+		if(!"".equals(result)){
+			compareResult.setChanged(true);
+			compareResult.setChangeContent(result);
+		}
+		return compareResult;
+	}	
 
 	/**
 	 * 对比bean属性 

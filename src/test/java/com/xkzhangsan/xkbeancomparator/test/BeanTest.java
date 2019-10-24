@@ -8,6 +8,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import com.xkzhangsan.xkbeancomparator.BeanComparator;
+import com.xkzhangsan.xkbeancomparator.CompareResult;
 
 public class BeanTest {
 
@@ -70,5 +71,69 @@ public class BeanTest {
 		String s = BeanComparator.compareBean(b1, b2, map);
 		System.out.println(s);
 	}
+	
+	/**
+	 * 对比所有属性
+	 * Compare all attributes,use method getCompareResult
+	 */
+	@Test
+	public void test3() {
+		Bean b1 = new Bean();
+		b1.setId(1);
+		b1.setName("aa");
+		b1.setBigD(new BigDecimal("111111111111.12"));
+		b1.setDate(new Date());
+
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		Bean b2 = new Bean();
+		b2.setId(1);
+		b2.setName("aa2");
+		b2.setBigD(new BigDecimal("1111111111111.15"));
+		b2.setDate(new Date());
+
+		CompareResult compareResult = BeanComparator.getCompareResult(b1, b2);
+		if(compareResult.isChanged()){
+			System.out.println(compareResult.getChangeContent());
+		}
+	}
+
+	/**
+	 * 只对比map中的属性，并根据key替换属性描述
+	 * Compare only the attributes in the map, 
+	 * and replace the attribute description based on the key,use method getCompareResult
+	 */
+	@Test
+	public void test4() {
+		Map<String, String> map = new HashMap<>();
+		map.put("name", "姓名");
+
+		Bean b1 = new Bean();
+		b1.setId(1);
+		b1.setName("aa");
+		b1.setBigD(new BigDecimal("111111111111.12"));
+		b1.setDate(new Date());
+
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		Bean b2 = new Bean();
+		b2.setId(1);
+		b2.setName("aa2");
+		b2.setBigD(new BigDecimal("1111111111111.15"));
+		b2.setDate(new Date());
+
+		CompareResult compareResult = BeanComparator.getCompareResult(b1, b2, map);
+		if(compareResult.isChanged()){
+			System.out.println(compareResult.getChangeContent());
+		}
+	}	
 
 }
