@@ -40,11 +40,11 @@ public static CompareResult getCompareResult(Object source, Object target)
 UserLog
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashMap;  
+import java.util.Map;  
 
-import com.xkzhangsan.xkbeancomparator.BeanComparator;
-import com.xkzhangsan.xkbeancomparator.CompareResult;
+import com.xkzhangsan.xkbeancomparator.BeanComparator;  
+import com.xkzhangsan.xkbeancomparator.CompareResult;  
 
 public class UserLog{
 
