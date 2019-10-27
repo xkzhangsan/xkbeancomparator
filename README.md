@@ -79,7 +79,8 @@ public class UserLog{
 		}
 	}
 
-（4）说明 instructions
+（4）说明 instructions  
+
 上面是推荐用法，使用辅助日志类能统一维护一个java bean的注释map，简化调用。
 The recommended usage, above, is to use secondary logging classes to uniformly maintain an annotated map of a Java bean, simplifying invocation.
 
