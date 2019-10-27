@@ -1,7 +1,8 @@
-xkbeancomparator是一个java bean对比修改并输出差异的工具。
-#xkbeancomparator is a Java bean contrast modification and outputs the difference. 
+# xkbeancomparator是一个java bean对比修改并输出差异的工具。  
 
-##0.依赖 dependency：
+xkbeancomparator is a Java bean contrast modification and outputs the difference.   
+
+## 0.依赖 dependency：  
 
     <dependency>  
       <groupId>com.github.xkzhangsan</groupId>    
@@ -10,28 +11,32 @@ xkbeancomparator是一个java bean对比修改并输出差异的工具。
     </dependency>    
 
 
-##1.常见用处 Common use：
+## 1.常见用处 Common use：  
 
 （1）对修改过的对象进行对比生成修改日志The modified objects are compared to generate a change log
            ；  
 （2）对比部分字段修改，根据字段注释输出日志Compare partial field modifications and output the log based on field comments
             。  
 
-##2.主要功能类和用法 Main function classes and usage：
+## 2.主要功能类和用法 Main function classes and usage：  
 
 主要类名称 Class：BeanComparator.java  
 主要方法为 Method ：  
 public static String compareBean(Object source, Object target)  
 public static CompareResult getCompareResult(Object source, Object target)
 
-##3 实例 xkbeancomparator-samples （https://github.com/xkzhangsan/xkbeancomparator-samples）
-（1）添加pom依赖
+## 3 实例 xkbeancomparator-samples （https://github.com/xkzhangsan/xkbeancomparator-samples）  
+
+（1）添加pom依赖  
+
     <dependency>  
       <groupId>com.github.xkzhangsan</groupId>    
       <artifactId>xkbeancomparator</artifactId>       
       <version>0.0.1</version>    
     </dependency>    
-（2）增加辅助日志类
+    
+（2）增加辅助日志类  
+
 UserLog
 
 
@@ -55,7 +60,8 @@ public class UserLog{
 	}
 }
 
-（3）   使用
+（3）   使用  
+
 	@Test
 	public void test1() {
 		User u1 = new User();
