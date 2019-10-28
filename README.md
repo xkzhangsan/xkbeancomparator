@@ -25,7 +25,7 @@ xkbeancomparator is a Java bean contrast modification and outputs the difference
 public static String compareBean(Object source, Object target)  
 public static CompareResult getCompareResult(Object source, Object target)
 
-## 3 实例 xkbeancomparator-samples （https://github.com/xkzhangsan/xkbeancomparator-samples）  
+## 3 实例 xkbeancomparator-samples （ https://github.com/xkzhangsan/xkbeancomparator-samples ）  
 
 （1）添加pom依赖  
 
