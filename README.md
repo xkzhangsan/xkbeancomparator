@@ -35,9 +35,37 @@ public static CompareResult getCompareResult(Object source, Object target)
       <version>0.0.1</version>    
     </dependency>    
     
-（2）增加辅助日志类  
+（2）java bean类 User
 
-UserLog
+import java.math.BigDecimal;
+
+public class User {
+	Integer id;
+	String name;
+	private BigDecimal point;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public BigDecimal getPoint() {
+		return point;
+	}
+	public void setPoint(BigDecimal point) {
+		this.point = point;
+	}
+	
+
+}
+
+（3）增加辅助日志类  UserLog
 
 
 import java.util.HashMap;  
@@ -60,7 +88,7 @@ public class UserLog{
 	}
 }
 
-（3）   使用  
+（4）   使用  
 
 	@Test
 	public void test1() {
@@ -78,8 +106,12 @@ public class UserLog{
 			System.out.println(compareResult.getChangeContent());
 		}
 	}
+	
+（5）输出结果
 
-（4）说明 instructions  
+用户名:aa->aa2,积分:111111111111.12->111111111111.15,
+
+（6）说明 instructions  
 
 上面是推荐用法，使用辅助日志类能统一维护一个java bean的注释map，简化调用。
 The recommended usage, above, is to use secondary logging classes to uniformly maintain an annotated map of a Java bean, simplifying invocation.
