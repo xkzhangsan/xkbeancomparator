@@ -33,7 +33,7 @@ public static CompareResult getCompareResult(Object source, Object target)
     <dependency>  
       <groupId>com.github.xkzhangsan</groupId>    
       <artifactId>xkbeancomparator</artifactId>       
-      <version>0.0.1</version>    
+      <version>0.0.2</version>    
     </dependency>    
     
 （2）java bean类 User
