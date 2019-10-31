@@ -18,6 +18,7 @@ xkbeancomparator is a Java bean contrast modification and outputs the difference
 （2）对比部分字段修改，根据字段注释输出日志Compare partial field modifications and output the log based on field comments
             。  
 
+
 ## 2.主要功能类和用法 Main function classes and usage：  
 
 主要类名称 Class：BeanComparator.java  
