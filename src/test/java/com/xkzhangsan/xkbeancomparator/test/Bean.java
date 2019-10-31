@@ -9,6 +9,25 @@ public class Bean {
 	private String name;
 	private Date date;
 	private BigDecimal bigD;
+	
+	private boolean isFull;
+	private boolean started;
+
+	public boolean isFull() {
+		return isFull;
+	}
+
+	public void setFull(boolean isFull) {
+		this.isFull = isFull;
+	}
+
+	public boolean isStarted() {
+		return started;
+	}
+
+	public void setStarted(boolean started) {
+		this.started = started;
+	}
 
 	public Date getDate() {
 		return date;

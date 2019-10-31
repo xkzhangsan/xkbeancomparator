@@ -125,8 +125,8 @@ public class BeanComparator {
 				}
 			}
 			Class<?> propertyClazz = field.getClass();
-			Object sourcePropertyValue = getValueByField(source, clazz, name);
-			Object targetPropertyValue = getValueByField(target, clazz, name);
+			Object sourcePropertyValue = getValueByField(source, clazz, field);
+			Object targetPropertyValue = getValueByField(target, clazz, field);
 			if (nameMapped != null) {
 				name = nameMapped;
 			}
@@ -141,30 +141,54 @@ public class BeanComparator {
 	 * 
 	 * @param obj
 	 * @param clazz
-	 * @param name
+	 * @param field
 	 * @return
 	 */
-	private static Object getValueByField(Object obj, Class<?> clazz, String name) {
-		PropertyDescriptor descriptor;
-		Object value = null;
-		try {
-			descriptor = new PropertyDescriptor(name, clazz);
-			Method method = descriptor.getReadMethod();
-			value = method.invoke(obj);
-		} catch (IntrospectionException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
+	private static Object getValueByField(Object obj, Class<?> clazz, Field field) {
+		Object result = null;
+		if (field.getGenericType().toString().equals("boolean")) {
+			String methodName = field.getName();
+			if (!methodName.startsWith("is")) {
+				methodName = "is" + methodName.substring(0, 1).toUpperCase() + methodName.substring(1);
+			}
+			Method method = null;
+			try {
+				method = clazz.getMethod(methodName);
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			}
+			try {
+				result = method.invoke(obj);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		} else {
+			PropertyDescriptor descriptor;
+			try {
+				descriptor = new PropertyDescriptor(field.getName(), clazz);
+				Method method = descriptor.getReadMethod();
+				result = method.invoke(obj);
+			} catch (IntrospectionException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e.getMessage());
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e.getMessage());
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e.getMessage());
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e.getMessage());
+			}
 		}
-		return value;
+		return result;
 	}
 
 	/**

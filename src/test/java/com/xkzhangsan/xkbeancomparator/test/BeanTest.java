@@ -134,6 +134,30 @@ public class BeanTest {
 		if(compareResult.isChanged()){
 			System.out.println(compareResult.getChangeContent());
 		}
+	}
+	
+	/**
+	 * 对比所有属性 for boolean
+	 * Compare all attributes,use method getCompareResult
+	 */
+	@Test
+	public void test5() {
+		Bean b1 = new Bean();
+		b1.setId(1);
+		b1.setName("aa");
+		b1.setFull(true);//isFull
+		b1.setStarted(true);//started
+
+
+		Bean b2 = new Bean();
+		b2.setId(1);
+		b2.setName("aa2");
+		b2.setFull(false);
+		b2.setStarted(false);
+		CompareResult compareResult = BeanComparator.getCompareResult(b1, b2);
+		if(compareResult.isChanged()){
+			System.out.println(compareResult.getChangeContent());
+		}
 	}	
 
 }
