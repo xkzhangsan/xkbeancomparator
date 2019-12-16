@@ -2,6 +2,7 @@ package com.xkzhangsan.xkbeancomparator.test;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public class Bean {
 
@@ -12,6 +13,16 @@ public class Bean {
 	
 	private boolean isFull;
 	private boolean started;
+	
+	private List<Integer> ids;
+
+	public List<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Integer> ids) {
+		this.ids = ids;
+	}
 
 	public boolean isFull() {
 		return isFull;

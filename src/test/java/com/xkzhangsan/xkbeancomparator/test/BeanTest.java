@@ -1,8 +1,11 @@
 package com.xkzhangsan.xkbeancomparator.test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -154,6 +157,34 @@ public class BeanTest {
 		b2.setName("aa2");
 		b2.setFull(false);
 		b2.setStarted(false);
+		CompareResult compareResult = BeanComparator.getCompareResult(b1, b2);
+		if(compareResult.isChanged()){
+			System.out.println(compareResult.getChangeContent());
+		}
+	}
+	
+	/**
+	 * 对比所有属性 for list
+	 * Compare all attributes,use method getCompareResult
+	 */
+	@Test
+	public void test6() {
+		Bean b1 = new Bean();
+		b1.setId(1);
+		b1.setName("aa");
+		b1.setFull(true);//isFull
+		b1.setStarted(true);//started
+		List<Integer> ids1 = new ArrayList<>(Arrays.asList(1,2,3));
+		b1.setIds(ids1);// 跳过复杂属性，不对比复杂属性内容
+
+
+		Bean b2 = new Bean();
+		b2.setId(1);
+		b2.setName("aa2");
+		b2.setFull(false);
+		b2.setStarted(false);
+		List<Integer> ids2 = new ArrayList<>(Arrays.asList(4,5,6));
+		b2.setIds(ids2);		
 		CompareResult compareResult = BeanComparator.getCompareResult(b1, b2);
 		if(compareResult.isChanged()){
 			System.out.println(compareResult.getChangeContent());

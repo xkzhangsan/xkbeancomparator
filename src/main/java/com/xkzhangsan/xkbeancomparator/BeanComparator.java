@@ -90,11 +90,6 @@ public class BeanComparator {
 		if (fields == null || fields.length ==0) {
 			throw new RuntimeException("source.class has no property.");
 		}
-		for (Field field : fields) {
-			if (!PropertyTypeUtil.isSampleProperty(field.getType())) {
-				throw new RuntimeException("source.class has complex property.");
-			}
-		}
 		return compareProperty(source, target, clazz, fields, propertyTranslationMap);
 	}
 
@@ -115,6 +110,10 @@ public class BeanComparator {
 			Map<String, String> propertyTranslationMap) {
 		StringBuilder sBuilder = new StringBuilder();
 		for (Field field : fields) {
+			// 复杂类型属性暂不处理
+			if (!PropertyTypeUtil.isSampleProperty(field.getType())) {
+				continue;
+			}			
 			String name = field.getName();
 			String nameMapped = null;
 			if (!(propertyTranslationMap == null || propertyTranslationMap.isEmpty())) {
