@@ -164,7 +164,7 @@ public class BeanTest {
 	}
 	
 	/**
-	 * 对比所有属性 for list
+	 * 对比所有属性 跳过复杂字段不处理
 	 * Compare all attributes,use method getCompareResult
 	 */
 	@Test
@@ -174,7 +174,7 @@ public class BeanTest {
 		b1.setName("aa");
 		b1.setFull(true);//isFull
 		b1.setStarted(true);//started
-		List<Integer> ids1 = new ArrayList<>(Arrays.asList(1,2,3));
+		List<Integer> ids1 = new ArrayList<>(Arrays.asList(1,2,3)); // 跳过复杂字段list不处理
 		b1.setIds(ids1);// 跳过复杂属性，不对比复杂属性内容
 
 
