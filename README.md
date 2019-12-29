@@ -7,7 +7,7 @@ xkbeancomparator is a Java bean contrast modification and outputs the difference
     <dependency>  
       <groupId>com.github.xkzhangsan</groupId>    
       <artifactId>xkbeancomparator</artifactId>       
-      <version>0.0.2</version>    
+      <version>0.0.3</version>    
     </dependency>    
 
 
