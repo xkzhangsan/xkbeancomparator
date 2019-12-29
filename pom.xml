@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.xkzhangsan</groupId>
 	<artifactId>xkbeancomparator</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<packaging>jar</packaging>
 	<name>xkbeancomparator</name>
 	<url>https://github.com/xkzhangsan/xkbeancomparator</url>
